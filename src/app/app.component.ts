@@ -9,8 +9,8 @@ import { Collegue } from './shared/domain/collegue';
 })
 export class AppComponent implements OnInit {
 
-  private collegues: Collegue[]
-  private afficherAlert:boolean
+  public collegues: Collegue[]
+  public afficherAlert:boolean
 
   ngOnInit() {
     this.collegues = [new Collegue('Benjamin', 'https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAy2AAAAJGQ4ZjNkNDRhLTg5MGQtNGY3MC1hODA1LTcyODk1Y2ViYzg4Yg.jpg', 20),
