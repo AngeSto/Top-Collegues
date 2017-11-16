@@ -23,7 +23,7 @@ export class AppComponent implements OnInit {
   add(pseudo: HTMLInputElement, imageUrl: HTMLInputElement) {
     if(pseudo.value && imageUrl.value){
 
-    this.colServ.sauvegarder(new Collegue(pseudo.value, imageUrl.value))
+    this.colServ.sauvegarder(new Collegue(pseudo.value, imageUrl.value, 100))
     pseudo.value = null
     imageUrl.value = null
     this.afficherAlert=true

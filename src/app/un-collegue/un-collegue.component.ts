@@ -15,12 +15,12 @@ export class UnCollegueComponent implements OnInit {
   constructor(public colServ:CollegueService) { }
 
   jaime(){
-    this.colServ.aimerUnCollegue(this.collegue)
+    this.colServ.aimerUnCollegue(this.collegue).then(data => {this.collegue = data})
     
   }
 
   jeDeteste(){
-    this.colServ.detesterUnCollegue(this.collegue)
+    this.colServ.detesterUnCollegue(this.collegue).then(data => {this.collegue = data})
   }
 
   ngOnInit() {
