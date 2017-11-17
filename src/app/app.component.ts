@@ -10,17 +10,14 @@ import { CollegueService } from './shared/service/collegue.service';
 })
 export class AppComponent implements OnInit {
 
-  public collegues: Collegue[]
   public afficherAlert:boolean
+  
+    constructor(public colServ:CollegueService){}
 
-  constructor(public colServ:CollegueService){
-
-  }
 
   ngOnInit() {
-    this.colServ.listerCollegues().then(data => {this.collegues=data})
   }
-  add(pseudo: HTMLInputElement, imageUrl: HTMLInputElement) {
+add(pseudo: HTMLInputElement, imageUrl: HTMLInputElement) {
     if(pseudo.value && imageUrl.value){
 
     this.colServ.sauvegarder(new Collegue(pseudo.value, imageUrl.value, 100))

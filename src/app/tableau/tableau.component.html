@@ -1,0 +1,19 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col"></th>
+      <th scope="col">Pseudo</th>
+      <th scope="col">Score</th>
+      <th scope="col" class="text-center">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let collegue of collegues">
+        <td scope="row"><a routerLink="/details/{{collegue.nom}}"><img [title]="'Photo de ' +collegue.nom" [src]="collegue.image" [alt]="'photo de ' +collegue.nom" width="100px" height="100px"/></a></td>
+        <td class="align-middle">{{collegue.nom}}</td>
+        <td class="align-middle">{{collegue.score}}</td>
+        <td class="align-middle"><button class="btn btn-success float-left  col-5" (click)="jaime(collegue)">J'aime</button>
+          <button class="btn btn-danger float-right col-5" (click)="jeDeteste(collegue)">Je déteste</button></td>
+      </tr>
+  </tbody>
+</table>

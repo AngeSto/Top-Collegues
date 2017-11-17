@@ -21,11 +21,13 @@
       </div>
     </div>
   </form>
+  <nav class="nav nav-pills flex-column flex-sm-row">
+      <a class="flex-sm-fill text-sm-center nav-link" routerLink="/classique" routerLinkActive="active">Classique</a>
+      <a class="flex-sm-fill text-sm-center nav-link" routerLink="/tableau" routerLinkActive="active">Tableau</a>
+      <a class="flex-sm-fill text-sm-center nav-link" routerLink="/carrousel" routerLinkActive="active">Carrousel</a>
+    </nav>
 </div>
-<div class="container-fluid">
-  <div class="row ml-5">
-    <div *ngFor='let collegue of collegues'>
-      <app-un-collegue [collegue]="collegue"></app-un-collegue>
-    </div>
-  </div>
+  
+<div id="content">
+  <router-outlet></router-outlet>
 </div>
