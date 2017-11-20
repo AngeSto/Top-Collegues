@@ -10,7 +10,7 @@
           </div>
     </form>
   <div class="row ml-5">
-    <div *ngFor="let collegue of collegues | slice:0:limit | filtreNom:filtre">
+    <div *ngFor="let collegue of collegues | filtreNom:filtre | slice:0:limit">
         <div class="col-4">
             <div class="card" style="width: 20rem;">
                 <a routerLink="/details/{{collegue.nom}}"><img class="card-img-top" [src]="collegue.image" [alt]="'Photo de '+collegue.nom " [title]="'Photo de '+collegue.nom " height="300px"></a>
