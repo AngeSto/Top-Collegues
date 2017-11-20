@@ -10,6 +10,8 @@ import { TableauComponent } from './tableau/tableau.component';
 import { ListeCollegueComponent } from './liste-collegue/liste-collegue.component';
 import { CarrouselComponent } from './carrousel/carrousel.component';
 import { DetailsComponent } from './details/details.component';
+import { ScorePipe } from './shared/pipe/score.pipe';
+import { FiltreNomPipe } from './shared/pipe/filtre-nom.pipe';
 
 const appRoutes: Routes = [
   {path:'classique', component : ListeCollegueComponent},
@@ -24,7 +26,9 @@ const appRoutes: Routes = [
     TableauComponent,
     ListeCollegueComponent,
     CarrouselComponent,
-    DetailsComponent
+    DetailsComponent,
+    ScorePipe,
+    FiltreNomPipe
   ],
   imports: [
     BrowserModule,

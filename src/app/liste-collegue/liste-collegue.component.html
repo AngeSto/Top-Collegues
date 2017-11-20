@@ -1,12 +1,22 @@
 <div class="container-fluid">
+    <form>
+        <div class="input-group mt-2 mr-sm-2 mb-sm-0">
+          <div class="input-group-addon">Limite</div>
+          <input type="number" class="form-control" placeholder="Limite de collègue à afficher" (keyup)="onKeyUp($event)">
+        </div>
+        <div class="input-group mt-2 mb-2 mr-sm-2 ">
+            <div class="input-group-addon">Filtrer par pseudo</div>
+            <input type="text" class="form-control" placeholder="Recherche par pseudo de collègue" (keyup)="filtrer($event)">
+          </div>
+    </form>
   <div class="row ml-5">
-    <div *ngFor='let collegue of collegues'>
+    <div *ngFor="let collegue of collegues | slice:0:limit | filtreNom:filtre">
         <div class="col-4">
             <div class="card" style="width: 20rem;">
                 <a routerLink="/details/{{collegue.nom}}"><img class="card-img-top" [src]="collegue.image" [alt]="'Photo de '+collegue.nom " [title]="'Photo de '+collegue.nom " height="300px"></a>
               <div class="card-block">
-                <h4 class="card-title text-center">{{collegue.nom}}</h4>
-                <h4 class="card-title text-center">{{collegue.score}}</h4>
+                <h4 class="card-title text-center">{{collegue.nom | uppercase}}</h4>
+                <h4 class="card-title text-center" [innerHTML]="collegue.score | score"></h4>
                 <button class="btn btn-success float-left  col-5" (click)="jaime(collegue)">J'aime</button>
                 <button class="btn btn-danger float-right col-5" (click)="jeDeteste(collegue)">Je déteste</button>
               </div>

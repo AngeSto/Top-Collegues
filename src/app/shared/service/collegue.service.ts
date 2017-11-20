@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Collegue } from '../domain/collegue';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from '../../../environments/environment';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -15,7 +16,7 @@ export class CollegueService {
     
    }
   listerCollegues(): Promise<Collegue[]> {
-    return this.http.get<Collegue[]>('http://localhost:8080/collegues').toPromise()
+    return this.http.get<Collegue[]>(`${environment.apiUrl}/collegues`).toPromise()
     /*
     return new Promise((resolve, reject) => {
       if (this.collegues.length == 0) {
@@ -31,13 +32,13 @@ export class CollegueService {
     */
   }
   sauvegarder(newCollegue: Collegue): Promise<Collegue> {
-    return this.http.post<Collegue>('http://localhost:8080/collegues', newCollegue, httpOptions ).toPromise()
+    return this.http.post<Collegue>(`${environment.apiUrl}/collegues`, newCollegue, httpOptions ).toPromise()
   }
   
   aimerUnCollegue(unCollegue: Collegue): Promise<Collegue> {
-    return this.http.put<Collegue>(`http://localhost:8080/collegues/${unCollegue.nom}/score`, {"avis" : "jaime"}, httpOptions).toPromise()
+    return this.http.put<Collegue>(`${environment.apiUrl}/collegues/${unCollegue.nom}/score`, {"avis" : "jaime"}, httpOptions).toPromise()
   }
   detesterUnCollegue(unCollegue: Collegue): Promise<Collegue> {
-    return this.http.put<Collegue>(`http://localhost:8080/collegues/${unCollegue.nom}/score`, {"avis" : "jeDeteste"}, httpOptions).toPromise()
+    return this.http.put<Collegue>(`${environment.apiUrl}/collegues/${unCollegue.nom}/score`, {"avis" : "jeDeteste"}, httpOptions).toPromise()
   }
 }

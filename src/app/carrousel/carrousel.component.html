@@ -3,7 +3,7 @@
     <ng-template ngbSlide>
         <a routerLink="/details/{{collegue.nom}}"><img class="rounded mx-auto d-block" height="720" width="720" [src]="collegue.image" [alt]="'Photo de '+collegue.nom" [title]="'Photo de '+collegue.nom"></a>
       <div class="carousel-caption">
-        <h1>{{collegue.score}}</h1>
+        <h1 [innerHTML]="collegue.score | score"></h1>
         <button class="btn btn-success float-left  col-5" (click)="jaime(collegue)">J'aime</button>
         <button class="btn btn-danger float-right col-5" (click)="jeDeteste(collegue)">Je déteste</button>
       </div>

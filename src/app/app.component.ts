@@ -16,6 +16,7 @@ export class AppComponent implements OnInit {
 
 
   ngOnInit() {
+    
   }
 add(pseudo: HTMLInputElement, imageUrl: HTMLInputElement) {
     if(pseudo.value && imageUrl.value){
@@ -27,4 +28,5 @@ add(pseudo: HTMLInputElement, imageUrl: HTMLInputElement) {
     }
     return false
   }
+  
 }
