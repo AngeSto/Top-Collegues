@@ -12,8 +12,8 @@
         <td scope="row"><a routerLink="/details/{{collegue.nom}}"><img [title]="'Photo de ' +collegue.nom" [src]="collegue.image" [alt]="'photo de ' +collegue.nom" width="100px" height="100px"/></a></td>
         <td class="align-middle">{{collegue.nom | uppercase}}</td>
         <td class="align-middle" [innerHTML]="collegue.score | score"></td>
-        <td class="align-middle"><button class="btn btn-success float-left  col-5" (click)="jaime(collegue)">J'aime</button>
-          <button class="btn btn-danger float-right col-5" (click)="jeDeteste(collegue)">Je déteste</button></td>
+        <td class="align-middle"><button class="btn btn-success float-left  col-5" (click)="jaime(collegue)" [disabled]="!ping">J'aime</button>
+          <button class="btn btn-danger float-right col-5" (click)="jeDeteste(collegue)" [disabled]="!ping">Je déteste</button></td>
       </tr>
   </tbody>
 </table>

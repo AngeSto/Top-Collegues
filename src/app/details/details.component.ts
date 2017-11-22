@@ -11,23 +11,25 @@ import { CollegueService } from '../shared/service/collegue.service';
 export class DetailsComponent implements OnInit {
   collegue: Collegue
   pseudo: string
-  constructor(private route: ActivatedRoute, public servCol: CollegueService) {
+  ping:boolean
+  constructor(private route: ActivatedRoute, public colServ: CollegueService) {
     route.params.subscribe(params => { this.pseudo = params['nom'] })
   }
   ngOnInit() {
     console.log("Entree dans init")
-    this.servCol.listerCollegues().
-      then(collegues => {
+    this.colServ.listerCollegues().
+      subscribe(collegues => {
         this.collegue = collegues.
           find(col => col.nom == this.pseudo)
       })
+      this.colServ.ping().subscribe(boolean => this.ping=boolean)
   }
 
   jaime() {
-    this.servCol.aimerUnCollegue(this.collegue).then(col => { this.collegue = col })
+    this.colServ.aimerUnCollegue(this.collegue).subscribe(col => { this.collegue = col })
   }
   jeDeteste() {
-    this.servCol.detesterUnCollegue(this.collegue).then(col => { this.collegue = col })
+    this.colServ.detesterUnCollegue(this.collegue).subscribe(col => { this.collegue = col })
 
   }
 }

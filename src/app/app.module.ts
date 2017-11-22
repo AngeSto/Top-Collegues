@@ -12,12 +12,17 @@ import { CarrouselComponent } from './carrousel/carrousel.component';
 import { DetailsComponent } from './details/details.component';
 import { ScorePipe } from './shared/pipe/score.pipe';
 import { FiltreNomPipe } from './shared/pipe/filtre-nom.pipe';
+import { DernierComponent } from './dernier/dernier.component';
+import { EtatServeurComponent } from './etat-serveur/etat-serveur.component';
+import { DernierVoteComponent } from './dernier-vote/dernier-vote.component';
 
 const appRoutes: Routes = [
   {path:'classique', component : ListeCollegueComponent},
   {path:'tableau', component : TableauComponent},
   {path:'carrousel', component: CarrouselComponent},
-  {path:'details/:nom', component: DetailsComponent}
+  {path:'details/:nom', component: DetailsComponent},
+  {path:'vote', component: DernierVoteComponent},
+  {path: '**', redirectTo:'classique'}
 ]
 
 @NgModule({
@@ -28,7 +33,10 @@ const appRoutes: Routes = [
     CarrouselComponent,
     DetailsComponent,
     ScorePipe,
-    FiltreNomPipe
+    FiltreNomPipe,
+    DernierComponent,
+    EtatServeurComponent,
+    DernierVoteComponent
   ],
   imports: [
     BrowserModule,

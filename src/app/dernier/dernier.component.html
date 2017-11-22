@@ -1,0 +1,17 @@
+<div *ngIf="avis!=undefined">
+    <div *ngIf="avis.aimer">
+        <div class="alert alert-success" role="alert">
+            J'aime {{avis.collegue.nom}}
+        </div>
+    </div>
+    <div *ngIf="!avis.aimer">
+        <div class="alert alert-danger" role="alert">
+            Je déteste {{avis.collegue.nom}}
+        </div>
+    </div>
+</div>
+<div *ngIf="avis==undefined">
+    <div class="alert" style="background-color:rgb(218, 216, 216)" role="alert">
+        Aucun vote
+    </div>
+</div>

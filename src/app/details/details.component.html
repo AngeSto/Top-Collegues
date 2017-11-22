@@ -3,7 +3,7 @@
     <div class="card-block">
       <h4 class="card-title text-center">{{collegue?.nom | uppercase}}</h4>
       <h4 class="card-title text-center" [innerHTML]="collegue.score | score"></h4>
-      <button class="btn btn-success float-left  col-5" (click)="jaime()">J'aime</button>
-      <button class="btn btn-danger float-right col-5" (click)="jeDeteste()">Je déteste</button>
+      <button class="btn btn-success float-left  col-5" (click)="jaime()" [disabled]="!ping">J'aime</button>
+      <button class="btn btn-danger float-right col-5" (click)="jeDeteste()" [disabled]="!ping">Je déteste</button>
     </div>
   </div>

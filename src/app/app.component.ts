@@ -11,12 +11,12 @@ import { CollegueService } from './shared/service/collegue.service';
 export class AppComponent implements OnInit {
 
   public afficherAlert:boolean
-  
+  public ping:boolean
     constructor(public colServ:CollegueService){}
 
 
   ngOnInit() {
-    
+    this.colServ.ping().subscribe(boolean => this.ping=boolean)
   }
 add(pseudo: HTMLInputElement, imageUrl: HTMLInputElement) {
     if(pseudo.value && imageUrl.value){
